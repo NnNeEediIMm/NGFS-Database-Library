@@ -1,4 +1,4 @@
-# NGFS-Database-Library
+# NGFS Database Library
 NGFS Database Library is a C# Library that is created for use for local database usage. It uses encryption, with local iles to save data. Keep in mind that it is curently in beta, so it is work still in progress.
 
 Usage guide:
