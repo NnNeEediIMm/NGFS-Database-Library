@@ -10,7 +10,31 @@ Usage guide:
 List:
 
 db.DatabaseExists( database name );
-Bool used to check if database exists
+//Bool used to check if database exists
  
 db.CreateDatabase( database name );
-Used to create database
+//Used to create database
+
+db.DeleteDatabase( database name );
+//Deletes the database
+
+db.ResetDatabase( database name );
+//resets database
+
+db.Add( value to be added (string []) , database name );
+//add info to database
+
+db.IndexFromFieldValue( database name , value of field that you want to get index from , field index , if multiple indexes choose what  index u want (0 by default) );
+//get index from field value
+
+List<string[]> database list = db.GetDatabase( database name );
+//get full database, list is made with string[] so list is made of rows and inside string[] are the fields;
+
+db.DeleteIndex( database name , row index );
+//delete certain row in a database
+
+db.EditIndex( database name , new text value of field , row index , field index );
+//Changes certain field value in database
+
+db.GetValueByIndex( database name , row index , field index );
+//get value of a certain field
