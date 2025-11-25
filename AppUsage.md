@@ -147,14 +147,14 @@ SEARCH COMMAND
 SEARCH BY FIELD VALUE
 --
 Command:
-search-in-database /databaseName /searchValue /fieldIndex /resultIndex
+search-in-database /databaseName /searchValue /fieldIndex
 
 Description:
-Searches for rows where fieldIndex matches searchValue.
-If multiple rows match, resultIndex selects which match to return.
+Searches for rows where field value of field at field index matches searchValue.
+Returns array of index in int
 
 Example:
-search-in-database /users /Bob /0 /0
+search-in-database /users /Bob /0
 
 Meaning:
 Find row where field 0 equals "Bob", return the first match.
