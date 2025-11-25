@@ -8,36 +8,59 @@ Usage guide:
  - Then you can use commands:
 ------------------------------------
 List:
+db.DatabaseExists(databaseName);
+// Returns a bool indicating whether the database file exists.
 
-db.DatabaseExists( database name );
-//Bool used to check if database exists
- 
-db.CreateDatabase( database name );
-//Used to create database
 
-db.DeleteDatabase( database name );
-//Deletes the database
+db.CreateDatabase(databaseName);
+// Creates a new empty database (.ngfsdata file).
+// Throws an exception if it already exists.
 
-db.ResetDatabase( database name );
-//resets database
 
-db.Add( value to be added (string []) , database name );
-//add info to database
+db.DeleteDatabase(databaseName);
+// Deletes the specified database file.
+// Throws an exception if it does not exist.
 
-db.IndexFromFieldValue( database name , value of field that you want to get index from , field index , if multiple indexes choose what  index u want (0 by default) );
-//get index from field value
 
-List<string[]> database list = db.GetDatabase( database name );
-//get full database, list is made with string[] so list is made of rows and inside string[] are the fields;
+db.ResetDatabase(databaseName);
+// Deletes the database if it exists, then recreates it empty.
 
-db.DeleteIndex( database name , row index );
-//delete certain row in a database
+
+db.Add(databaseName, stringArrayValues);
+// Adds a new row to the database.
+// The row consists of encrypted fields from the string[] array.
+
+
+db.AddAtIndex(databaseName, stringArrayValues, rowIndex);
+// Inserts a new row at the specified index (shifting existing rows down).
+
+
+db.IndexFromFieldValue(databaseName, fieldValue, fieldIndex, optionalIndex = 0);
+// Searches rows for a specific field value.
+// Returns the row index where fieldIndex == fieldValue.
+// If multiple matches exist, optionalIndex selects which one (default is 0).
+// Returns -1 if not found.
+
+
+List<string[]> database = db.GetDatabase(databaseName);
+// Loads the entire database into a List of string[].
+// Each List entry = a row, and each string[] = decrypted fields.
+
+
+db.DeleteIndex(databaseName, rowIndex);
+// Removes a specific row from the database (by index).
+// Does nothing if the row is empty or index is out of range.
+
+
+db.EditIndex(databaseName, newValue, rowIndex, fieldIndex);
+// Edits a specific field of a row.
+// Decrypts the row, modifies the field, then re-encrypts and saves it.
+
+
+db.GetValueByIndex(databaseName, rowIndex, fieldIndex);
+// Returns the decrypted value of a specific field.
+// Returns an empty string if the index is invalid.
+
 
 db.GetLibraryVersion();
-//returns version of the library
-
-db.EditIndex( database name , new text value of field , row index , field index );
-//Changes certain field value in database
-
-db.GetValueByIndex( database name , row index , field index );
-//get value of a certain field
+// Returns the current version of the NGFS library.
