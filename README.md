@@ -35,11 +35,10 @@ db.AddAtIndex(databaseName, stringArrayValues, rowIndex);
 // Inserts a new row at the specified index (shifting existing rows down).
 
 
-db.IndexFromFieldValue(databaseName, fieldValue, fieldIndex, optionalIndex = 0);
-// Searches rows for a specific field value.
-// Returns the row index where fieldIndex == fieldValue.
-// If multiple matches exist, optionalIndex selects which one (default is 0).
-// Returns -1 if not found.
+db.IndexFromFieldValue(databaseName, fieldValue, fieldIndex);
+// Searches rows for a specific field value, at field index.
+// Returns the row index where value of field at fieldIndex == fieldValue.
+// Returns array of index as int
 
 
 List<string[]> database = db.GetDatabase(databaseName);
