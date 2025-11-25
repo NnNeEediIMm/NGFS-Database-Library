@@ -182,6 +182,16 @@ EXIT
 --
 Command:
 exit
+
 Description:
 Exits the app.
 Closes the application.
+
+VERSION
+--
+Command:
+version /app
+version /library
+
+Description:
+Check app, and library version.
