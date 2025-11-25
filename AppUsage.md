@@ -1,5 +1,5 @@
-NGFS CONSOLE COMMAND GUIDE:
-----
+NGFS CONSOLE COMMAND GUI
+__________________________
 Before using any database commands, you must first set the main directory where all .ngfsdata files will be stored. The console prompt uses the format:
 
 command /parameter1 /parameter2 /parameter3 ...
