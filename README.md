@@ -33,6 +33,9 @@ List<string[]> database list = db.GetDatabase( database name );
 db.DeleteIndex( database name , row index );
 //delete certain row in a database
 
+db.GetLibraryVersion();
+//returns version of the library
+
 db.EditIndex( database name , new text value of field , row index , field index );
 //Changes certain field value in database
 
