@@ -1,12 +1,13 @@
 NGFS CONSOLE COMMAND GUIDE:
-
+----
 Before using any database commands, you must first set the main directory where all .ngfsdata files will be stored. The console prompt uses the format:
 
 command /parameter1 /parameter2 /parameter3 ...
 
 The placeholder %root% refers to the application’s current working directory.
---------
+
 DEFINE ROOT DIRECTORY
+---
 Command:
 define /path
 
@@ -15,10 +16,11 @@ Defines the main directory used to store databases. This must be executed before
 
 Example:
 define /%root%/databases
-------------
-DATABASE MANAGEMENT COMMANDS
 
+DATABASE MANAGEMENT COMMANDS
+---
 CREATE DATABASE
+--
 Command:
 create-database /databaseName
 
@@ -27,8 +29,9 @@ Creates a new empty database file named databaseName.ngfsdata in the defined dir
 
 Example:
 create-database /users
-------------
+
 DELETE DATABASE
+---
 Command:
 delete-database /databaseName
 
@@ -39,6 +42,7 @@ Example:
 delete-database /users
 
 RESET DATABASE
+----
 Command:
 reset-database /databaseName
 
@@ -49,8 +53,10 @@ Example:
 reset-database /users
 
 ENTRY MANAGEMENT COMMANDS
+--
 
 ADD NEW ENTRY
+--
 Command:
 add-to-database /databaseName /value1, value2, value3 ...
 
@@ -64,6 +70,7 @@ This produces a new row:
 Bob | 17 | USA
 
 ADD ENTRY AT SPECIFIC INDEX
+---
 Command:
 add-to-database-index /databaseName /value1, value2, value3 ... /index
 
@@ -76,6 +83,7 @@ add-to-database-index /users /Alex, 25, UK /0
 This inserts at the top of the database.
 
 DELETE ROW BY INDEX
+---
 Command:
 delete-at-index /databaseName /index
 
@@ -86,6 +94,7 @@ Example:
 delete-at-index /users /2
 
 EDIT SPECIFIC FIELD
+----
 Command:
 edit-at-index /databaseName /newValue /rowIndex /fieldIndex
 
@@ -104,8 +113,10 @@ edit-at-index /users /Charlie /0 /1
 This changes field 1 in row 0 to "Charlie".
 
 DATABASE READING COMMANDS
+---
 
 LIST DATABASES
+--
 Command:
 get-database-list
 
@@ -113,6 +124,7 @@ Description:
 Displays all .ngfsdata files inside the defined directory.
 
 READ ENTIRE DATABASE
+--
 Command:
 get-database /databaseName
 
@@ -128,8 +140,10 @@ Output format example:
 Alex / 25 / UK
 
 SEARCH COMMAND
+--
 
 SEARCH BY FIELD VALUE
+--
 Command:
 search-in-database /databaseName /searchValue /fieldIndex /resultIndex
 
@@ -144,8 +158,10 @@ Meaning:
 Find row where field 0 equals "Bob", return the first match.
 
 UTILITY COMMANDS
+--
 
 CLEAR CONSOLE
+--
 Command:
 cls
 
@@ -153,6 +169,7 @@ Description:
 Clears the screen.
 
 HELP
+--
 Command:
 help
 help /link
@@ -162,8 +179,9 @@ Displays help information.
 help /link opens the GitHub documentation in the browser.
 
 EXIT
+--
 Command:
 exit
-
 Description:
+Exits the app.
 Closes the application.
