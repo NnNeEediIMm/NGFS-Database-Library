@@ -5,6 +5,7 @@ Before using any database commands, you must first set the main directory where 
 command /parameter1 /parameter2 /parameter3 ...
 
 The placeholder %root% refers to the application’s current working directory.
+Also, all commands containing database can be written as db, example: create-database can be written as create-db
 
 DEFINE ROOT DIRECTORY
 ---
